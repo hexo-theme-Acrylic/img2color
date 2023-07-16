@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from flask import Flask, request
-from api.index import img_to_color
+from api.img2color import img_to_color
 
 
 app = Flask(__name__)
