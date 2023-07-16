@@ -13,6 +13,6 @@ def img_to_color(image_url):
   main_color = image.getpixel((0, 0))
 
   # 将颜色转换为十六进制表示形式
-  hex_color = '#{:02x}{:02x}{:02x}'.format(*main_color)
+  hex_color = '#%02x%02x%02x' % main_color
 
   return hex_color
