@@ -4,13 +4,13 @@ from flask import Flask, request
 from PIL import Image
 import requests
 import io
+import os
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
   return "This is img2color API."
-
 # theme_color
 @app.route('/img2color', methods=['POST', 'GET'])
 def img2color():
