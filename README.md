@@ -9,3 +9,12 @@
 
 > 这边目前是我个人使用,所以色彩数据通过json存储,但是数据如果很庞大还是会吃不消,所以近期推出mysql方案
 适用于[Acrylic-Pro主题](https://github.com/hexo-theme-Acrylic/hexo-theme-Acrylic)的提取主题色
+
+## 跨域解决
+> 原则上“Access-Control-Allow-Origin”这里后面不要写*，写指定域名会安全点
+打开宝塔网站的配置文件,添加一下内容
+```code
+    add_header 'Access-Control-Allow-Origin'   '*';
+    add_header 'Access-Control-Allow-Credentials'   'true';
+    add_header 'Access-Control-Allow-Methods'  'GET, POST, OPTIONS';
+```
