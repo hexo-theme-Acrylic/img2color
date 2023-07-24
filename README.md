@@ -1,5 +1,11 @@
-## img2color API
-这是一个利用PIL的getpixel()来获取图片主题色<br/>
-适用于[Acrylic-Pro主题](https://github.com/hexo-theme-Acrylic/hexo-theme-Acrylic)的提取主题色<br/>
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhexo-theme-Acrylic%2Fimg2color&project-name=hexo-theme-acrylic-api&repository-name=hexo-theme-acrylic-api)<br/>
-~想法看上去挺蠢的,不会真有人用api吧,时不时504TimeOut~<br/>
+## img2color PHP API
+这段代码是一个PHP脚本，用于获取图片的主题色。它的主要功能如下：
+- 定义了一个函数getImageThemeColor()，用于获取图片的主题色。
+- 通过$_GET['img']获取传入的图片URL参数。
+- 检查是否已经存在对应链接的色彩信息，如果存在则直接读取已存储的色彩信息并输出。
+- 如果不存在对应链接的色彩信息，则调用getImageThemeColor()函数获取图片主题色。
+- 将色彩信息存储到数组中，并将数组转换为JSON格式并存储到文件中。
+- 输出JSON格式的结果，包含图片的主题色信息。
+
+> 这边目前是我个人使用,所以色彩数据通过json存储,但是数据如果很庞大还是会吃不消,所以近期推出mysql方案
+适用于[Acrylic-Pro主题](https://github.com/hexo-theme-Acrylic/hexo-theme-Acrylic)的提取主题色
