@@ -22,15 +22,34 @@ function getImageThemeColor($imageUrl) {
     return $color;
 }
 
-// 检查是否传入图片URL参数
+/// 检查是否传入图片URL参数
 if (isset($_GET['img'])) {
     $imageUrl = $_GET['img'];
-    
-    // 获取图片主题色
-    $themeColor = getImageThemeColor($imageUrl);
-    
-    // 输出主题色值
-    echo $themeColor;
+
+    // 检查是否已经存在对应链接的色彩信息
+    $jsonFile = 'colors.json';
+    $colors = array();
+
+    if (file_exists($jsonFile)) {
+        $json = file_get_contents($jsonFile);
+        $colors = json_decode($json, true);
+    }
+
+    // 检查是否已经存储了对应链接的色彩信息
+    if (isset($colors[$imageUrl])) {
+        // 直接读取已存储的色彩信息并输出
+        $themeColor = $colors[$imageUrl];
+        echo $themeColor; // 输出主题色值
+    } else {
+        // 获取图片主题色
+        $themeColor = getImageThemeColor($imageUrl);
+
+        // 将色彩信息存储到数组中
+        $colors[$imageUrl] = $themeColor;
+
+         // 输出主题色值
+        echo $themeColor;
+    }
 } else {
     // 如果未传入img参数，则返回错误信息
     echo '错误，请在URL中加上?img=';
